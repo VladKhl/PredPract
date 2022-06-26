@@ -22,7 +22,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal"/>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Сортировать по" Style="{StaticResource base_textblock}" />
+                <TextBlock Style="{StaticResource base_textblock}" ><Run Language="ru-ru" Text="Категория:"/></TextBlock>
                 <ComboBox Width="275" x:Name="ComboSort" SelectionChanged="ComboSort_SelectionChanged"/>
             </StackPanel>
             <Button x:Name="allshow" Content="Показать все" Click="allshow_Click" Height="27" Width="110" />
