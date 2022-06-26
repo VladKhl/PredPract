@@ -76,5 +76,10 @@ namespace peresvet.Pages
                 }
             }
         }
+
+        private void DataGridSotrudniki_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            BtnDelete.IsEnabled = true;
+        }
     }
 }

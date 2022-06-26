@@ -26,9 +26,6 @@ namespace peresvet.Pages
     {
 
         private Products _currentProduct = new Products();
-        private string _filePath = null;
-        private string _photoName = null;
-        private static string _currentDirectory = Directory.GetCurrentDirectory() + @"\Images\";
         public ProductAddAndEditPage(Products selectedProduct)
         {
             InitializeComponent();
@@ -43,23 +40,6 @@ namespace peresvet.Pages
         private void BtnLoad_Click(object sender, RoutedEventArgs e)
         {
             
-        }
-
-        string ChangePhotoName()
-        {
-            string x = _currentDirectory + _photoName;
-            string photoname = _photoName;
-            int i = 0;
-            if (File.Exists(x))
-            {
-                while (File.Exists(x))
-                {
-                    i++;
-                    x = _currentDirectory + i.ToString() + photoname;
-                }
-                photoname = i.ToString() + photoname;
-            }
-            return photoname;
         }
         private StringBuilder CheckFields()
         {
@@ -90,13 +70,6 @@ namespace peresvet.Pages
 
             try
             {
-                if (_filePath != null)
-                {
-
-                    string photo = ChangePhotoName();
-                    string dest = _currentDirectory + photo;
-                    File.Copy(_filePath, dest);
-                }
                 var сс = ComboCategory.SelectedItem as Category;
                 _currentProduct.category_id = сс.category_id;
                 predprEntities.GetContext().SaveChanges();

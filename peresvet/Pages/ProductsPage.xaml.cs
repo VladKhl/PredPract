@@ -132,5 +132,11 @@ namespace peresvet.Pages
             Manager.MainFrame.Navigate(new ProductAddAndEditPage(LViewProducts.SelectedItem as Products));
 
         }
+
+        private void LViewProducts_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            deletetovar.IsEnabled = true;
+            redacttovar.IsEnabled = true;
+        }
     }
 }

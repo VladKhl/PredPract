@@ -75,5 +75,11 @@ namespace peresvet.Pages
         {
             Manager.MainFrame.Navigate(new SkladEditPage(null));
         }
+
+        private void DataGridSklad_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            BtnDelete.IsEnabled = true;
+            redacttovar.IsEnabled = true;
+        }
     }
 }

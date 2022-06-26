@@ -13,7 +13,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
-        <DataGrid x:Name="DataGridSotrudniki" Grid.Row="0" AutoGenerateColumns="False" IsReadOnly="True" RowHeight="30" SelectionMode="Single" LoadingRow="DataGridProducts_LoadingRow">
+        <DataGrid x:Name="DataGridSotrudniki" Grid.Row="0" SelectionChanged="DataGridSotrudniki_SelectionChanged" AutoGenerateColumns="False" IsReadOnly="True" RowHeight="30" SelectionMode="Single" LoadingRow="DataGridProducts_LoadingRow">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Familiya}" Header="Фамилия" Width="*"/>
                 <DataGridTextColumn Binding="{Binding Imya}" Header="Имя" Width="*"/>
@@ -32,6 +32,6 @@
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="BtnAdd" Grid.Row="1" Width="100" HorizontalAlignment="Left" Margin="3" Content="Добавить" Click="BtnAdd_Click"/>
-        <Button x:Name="BtnDelete" Grid.Row="1" Width="100" HorizontalAlignment="Right" Margin="3" Content="Удалить" Click="BtnDelete_Click"/>
+        <Button x:Name="BtnDelete" Grid.Row="1" Width="100" IsEnabled="False" HorizontalAlignment="Right" Margin="3" Content="Удалить" Click="BtnDelete_Click"/>
     </Grid>
 </Page>

@@ -28,11 +28,11 @@
             <Button x:Name="allshow" Content="Показать все" Click="allshow_Click" Height="27" Width="110" />
             <Button x:Name="showsklad" Content="Товары на складе" Click="showsklad_Click" Height="27" Width="140" />
             <Button x:Name="addtovar" Content="Добавить" Click="addtovar_Click" Height="27" Width="140" />
-            <Button x:Name="deletetovar" Content="Удалить" Click="deletetovar_Click" Height="27" Width="140" />
-            <Button x:Name="redacttovar" Content="Редактировать" Click="redacttovar_Click" Height="27" Width="140" />
+            <Button x:Name="deletetovar" Content="Удалить" IsEnabled="False" Click="deletetovar_Click" Height="27" Width="140" />
+            <Button x:Name="redacttovar" Content="Редактировать" IsEnabled="False" Click="redacttovar_Click" Height="27" Width="140" />
         </WrapPanel>
 
-        <ListView x:Name="LViewProducts" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+        <ListView x:Name="LViewProducts" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="LViewProducts_SelectionChanged">
             <ListView.ItemsPanel >
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center"/>
