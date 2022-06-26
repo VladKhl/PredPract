@@ -25,9 +25,6 @@ namespace peresvet.Pages
     public partial class AddAndEditPage : Page
     {
         private  Sotrudniki _currentSotrudniki = new Sotrudniki();
-        private string _filePath = null;
-        private string _photoName = null;
-        private static string _currentDirectory = Directory.GetCurrentDirectory() + @"\Images\";
         public AddAndEditPage(Sotrudniki selectedSotrudniki)
         {
             InitializeComponent();
@@ -36,48 +33,8 @@ namespace peresvet.Pages
 
             DataContext = _currentSotrudniki;
             ComboStatus.ItemsSource = predprEntities.GetContext().Status.ToList();
-        }
-
-        private void BtnLoad_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                OpenFileDialog op = new OpenFileDialog();
-                op.Title = "Select a picture";
-                op.Filter = "JPEG Files (*.jpeg)|*.jpeg|PNG Files (*.png)|*.png|JPG Files (*.jpg)|*.jpg|GIF Files (*.gif) |*.gif";
-                if (op.ShowDialog() == true)
-                {
-                    FileInfo fileInfo = new FileInfo(op.FileName);
-                    if (fileInfo.Length > (1024 * 1024 * 2))
-                    {
-                        throw new Exception("Размер файла должен быть меньше 2Мб");
-                    }
-                    ImagePhoto.Source = new BitmapImage(new Uri(op.FileName));
-                    _photoName = op.SafeFileName;
-                    _filePath = op.FileName;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                _filePath = null;
-            }
-        }
-        string ChangePhotoName()
-        {
-            string x = _currentDirectory + _photoName;
-            string photoname = _photoName;
-            int i = 0;
-            if (File.Exists(x))
-            {
-                while (File.Exists(x))
-                {
-                    i++;
-                    x = _currentDirectory + i.ToString() + photoname;
-                }
-                photoname = i.ToString() + photoname;
-            }
-            return photoname;
+            ComboDolzh.ItemsSource = predprEntities.GetContext().Dolzhnost.ToList();
+            ComboDolzh.DisplayMemberPath = "Name";
         }
         private StringBuilder CheckFields()
         {

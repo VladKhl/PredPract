@@ -15,8 +15,8 @@
         </Grid.RowDefinitions>
         <DataGrid x:Name="DataGridSklad" Grid.Row="0" AutoGenerateColumns="False" IsReadOnly="True" RowHeight="30" SelectionMode="Single" LoadingRow="DataGridSklad_LoadingRow">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Product.naimenivanie}" Header="Продукт" Width="*"/>
-                <DataGridTextColumn Binding="{Binding Product.articul}" Header="Артикул" Width="*"/>
+                <DataGridTextColumn Binding="{Binding Products.naimenivanie}" Header="Продукт" Width="*"/>
+                <DataGridTextColumn Binding="{Binding Products.articul}" Header="Артикул" Width="*"/>
                 <DataGridTextColumn Binding="{Binding kolichestvo}" Header="Количество" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>

@@ -55,11 +55,15 @@ namespace peresvet.Pages
             }
             if (_currentSklad.sklad_id == 0)
             {
+                var gg = comboname.SelectedItem as Products;
+                _currentSklad.product_id = gg.product_id;
                 predprEntities.GetContext().Sklad.Add(_currentSklad);
             }
 
             try
             {
+                var gg = comboname.SelectedItem as Products;
+                _currentSklad.product_id = gg.product_id;
                 predprEntities.GetContext().SaveChanges();
                 MessageBox.Show("Запись изменена");
                 Manager.MainFrame.GoBack();

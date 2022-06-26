@@ -36,13 +36,9 @@
         <TextBox Text="{Binding Imya}" Grid.Row="1" Grid.Column="1" Height="25"></TextBox>
         <TextBox Text="{Binding Otchestvo}" Grid.Row="2" Grid.Column="1" Height="25"></TextBox>
         <TextBox Text="{Binding Vozrast}" Grid.Row="3" Grid.Column="1" Width="175" Height="25" HorizontalAlignment="Left"></TextBox>
-        <TextBox Text="{Binding Dolzhnost}" Grid.Row="4" Grid.Column="1" Height="25"></TextBox>
+        <ComboBox SelectedItem="{Binding Dolzhnost}" x:Name="ComboDolzh" Grid.Row="4" Grid.Column="1" Height="25"></ComboBox>
         <TextBox Text="{Binding Stazh}" Grid.Column="1" Grid.Row="5" Width="175" Height="25" HorizontalAlignment="Left"></TextBox>
         <ComboBox SelectedItem="{Binding Status}" x:Name="ComboStatus" Grid.Row="6" Grid.Column="1" DisplayMemberPath="Status_name" Height="25"></ComboBox>
-        <Image x:Name="ImagePhoto" Source="{Binding GetPhoto}" Grid.Row="3" Grid.Column="1"
-               VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
-        <Button x:Name="BtnLoad" Grid.Row="7" Grid.Column="0" Margin="20"
-                HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="BtnLoad_Click" Content="Загрузить"/>
         <Button Name="BtnSave" Click="BtnSave_Click" Content="Сохранить" Width="150" Height="50" Grid.ColumnSpan="2" Grid.Row="9"></Button>
     </Grid>
 </Page>

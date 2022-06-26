@@ -20,10 +20,7 @@
                 <TextBlock Text="Введите название для поиска:" Style="{StaticResource base_textblock}"/>
                 <TextBox Width="275" x:Name="TBoxSearch" TextChanged="TBoxSearch_TextChanged"/>
             </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Выберите товар" Style="{StaticResource base_textblock}" />
-                <ComboBox Width="275" x:Name="ComboTovar" SelectionChanged="ComboTovar_SelectionChanged" DisplayMemberPath="naimenivanie"/>
-            </StackPanel>
+            <StackPanel Orientation="Horizontal"/>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Сортировать по" Style="{StaticResource base_textblock}" />
                 <ComboBox Width="275" x:Name="ComboSort" SelectionChanged="ComboSort_SelectionChanged"/>

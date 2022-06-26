@@ -27,7 +27,7 @@
         <TextBlock Text="Категория" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
         <TextBlock Text="Артикул" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
         <TextBox Text="{Binding naimenivanie}" Grid.Row="0" Grid.Column="1" Height="25" Margin="0,8,117,9"></TextBox>
-        <ComboBox x:Name="ComboCategory" Text="{Binding Category.name}" Grid.Row="1" Grid.Column="1" Height="25" Margin="0,8,115,8"></ComboBox>
+        <ComboBox x:Name="ComboCategory" SelectedItem="{Binding Category}" Grid.Row="1" Grid.Column="1" Height="25" Margin="0,8,115,8"></ComboBox>
         <TextBox Text="{Binding articul}" Grid.Row="2" Grid.Column="1" Width="175" Height="25" HorizontalAlignment="Left"></TextBox>
         <Button x:Name="BtnLoad" Grid.Row="6" Grid.Column="0" Margin="20"
                 HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="BtnLoad_Click" Content="Загрузить"/>

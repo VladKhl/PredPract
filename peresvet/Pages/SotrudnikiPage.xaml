@@ -15,13 +15,6 @@
         </Grid.RowDefinitions>
         <DataGrid x:Name="DataGridSotrudniki" Grid.Row="0" AutoGenerateColumns="False" IsReadOnly="True" RowHeight="30" SelectionMode="Single" LoadingRow="DataGridProducts_LoadingRow">
             <DataGrid.Columns>
-                <DataGridTemplateColumn Width="*" Header="Фотография">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Image Source="{Binding Path=GetPhoto}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
                 <DataGridTextColumn Binding="{Binding Familiya}" Header="Фамилия" Width="*"/>
                 <DataGridTextColumn Binding="{Binding Imya}" Header="Имя" Width="*"/>
                 <DataGridTextColumn Binding="{Binding Otchestvo}" Header="Отчество" Width="*"/>

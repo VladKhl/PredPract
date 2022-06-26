@@ -32,20 +32,12 @@ namespace peresvet.Pages
                 naimenivanie = "Все типы"
             }
             );
-            ComboTovar.ItemsSource = products;
-            ComboTovar.SelectedIndex = 0;
 
             LViewProducts.ItemsSource = predprEntities.GetContext().Products.OrderBy(p => p.naimenivanie).ToList();
             _itemcount = LViewProducts.Items.Count;
             TextBlockCount.Text = $" Результат запроса: {_itemcount} записей из {_itemcount}";
             ComboSort.ItemsSource = predprEntities.GetContext().Category.ToList();
             ComboSort.DisplayMemberPath = "name";
-        }
-
-        private void ComboTovar_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            ComboTovar.ItemsSource = predprEntities.GetContext().Products.OrderBy(p => p.naimenivanie).ToList();
-            UpdateData();
         }
 
         private void ComboSort_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -63,10 +55,6 @@ namespace peresvet.Pages
         {
             // получаем текущие данные из бд
             var currentTovars = predprEntities.GetContext().Products.OrderBy(p => p.naimenivanie).ToList();
-            // выбор только тех товаров, которые принадлежат данному производителю
-            if (ComboTovar.SelectedIndex > 0)
-                currentTovars = currentTovars.Where(p => p.product_id == (ComboTovar.SelectedItem as
-                Products).product_id).ToList();
             // выбор тех товаров, в названии которых есть поисковая строка
             currentTovars = currentTovars.Where(p =>
             p.naimenivanie.ToLower().Contains(TBoxSearch.Text.ToLower())).ToList();
@@ -84,8 +72,7 @@ namespace peresvet.Pages
                 naimenivanie = "Все типы"
             }
             );
-            ComboTovar.ItemsSource = products;
-            ComboTovar.SelectedIndex = 0;
+
 
             LViewProducts.ItemsSource = predprEntities.GetContext().Products.OrderBy(p => p.naimenivanie).ToList();
             _itemcount = LViewProducts.Items.Count;

@@ -83,6 +83,8 @@ namespace peresvet.Pages
             }
             if (_currentProduct.product_id == 0)
             {
+                var gg = ComboCategory.SelectedItem as Category;
+                _currentProduct.category_id = gg.category_id;
                 predprEntities.GetContext().Products.Add(_currentProduct);
             }
 
@@ -95,6 +97,8 @@ namespace peresvet.Pages
                     string dest = _currentDirectory + photo;
                     File.Copy(_filePath, dest);
                 }
+                var сс = ComboCategory.SelectedItem as Category;
+                _currentProduct.category_id = сс.category_id;
                 predprEntities.GetContext().SaveChanges();
                 MessageBox.Show("Запись изменена");
                 Manager.MainFrame.GoBack();
