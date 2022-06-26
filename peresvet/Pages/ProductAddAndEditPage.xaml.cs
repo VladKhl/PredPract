@@ -26,6 +26,8 @@ namespace peresvet.Pages
     {
 
         private Products _currentProduct = new Products();
+        public bool photochange = false;
+        byte[] photo = null;
         public ProductAddAndEditPage(Products selectedProduct)
         {
             InitializeComponent();
@@ -39,7 +41,19 @@ namespace peresvet.Pages
 
         private void BtnLoad_Click(object sender, RoutedEventArgs e)
         {
-            
+            OpenFileDialog ofdPicture = new OpenFileDialog();
+            ofdPicture.Filter = "Image files|*.bmp;*.jpg;*.gif;*.png;*.tif|All files|*.*";
+            ofdPicture.FilterIndex = 1;
+            if (ofdPicture.ShowDialog() == true)
+            {
+                BitmapImage image = new BitmapImage();
+                image.BeginInit();
+                image.UriSource = new Uri(ofdPicture.FileName);
+                image.EndInit();
+                prodim.Source = image;
+                photochange = true;
+                photo = File.ReadAllBytes(ofdPicture.FileName);
+            }
         }
         private StringBuilder CheckFields()
         {
@@ -63,6 +77,10 @@ namespace peresvet.Pages
             }
             if (_currentProduct.product_id == 0)
             {
+                if (photochange == true)
+                {
+                    _currentProduct.product_photo = photo;
+                }
                 var gg = ComboCategory.SelectedItem as Category;
                 _currentProduct.category_id = gg.category_id;
                 predprEntities.GetContext().Products.Add(_currentProduct);
@@ -70,6 +88,10 @@ namespace peresvet.Pages
 
             try
             {
+                if (photochange == true)
+                {
+                    _currentProduct.product_photo = photo;
+                }
                 var сс = ComboCategory.SelectedItem as Category;
                 _currentProduct.category_id = сс.category_id;
                 predprEntities.GetContext().SaveChanges();

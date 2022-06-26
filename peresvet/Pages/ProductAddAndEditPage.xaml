@@ -32,5 +32,7 @@
         <Button x:Name="BtnLoad" Grid.Row="6" Grid.Column="0" Margin="20"
                 HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="BtnLoad_Click" Content="Загрузить"/>
         <Button Name="BtnSave" Click="BtnSave_Click" Content="Сохранить" Width="150" Height="50" Grid.ColumnSpan="2" Grid.Row="7"></Button>
+        <Image x:Name="prodim"  Grid.ColumnSpan="2" HorizontalAlignment="Left" 
+               Stretch="Uniform" Source="{Binding product_photo}" Height="119" Margin="164,4,0,0" Grid.RowSpan="3" Grid.Row="4" VerticalAlignment="Top" Width="116"/>
     </Grid>
 </Page>
